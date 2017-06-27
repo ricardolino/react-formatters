@@ -45,3 +45,17 @@ describe('removeSpecialChars', () => {
         }
     });
 });
+
+describe('applyPattern', () => {
+    const { applyPattern } = formatters;
+
+    it('should return values with your patterns', () => {
+        const textList = ['12121234', '12312312312', '1234567890'];
+        const patternList = ['00/00/0000', '000.000.000-00', '(00) 0000-0000'];
+        const textWithPatternList = ['12/12/1234', '123.123.123-12', '(12) 3456-7890'];
+        
+        for (var i = textList.length - 1; i >= 0; i--) {
+            expect(applyPattern(textList[i], patternList[i])).toBe(textWithPatternList[i]);
+        }
+    });
+});

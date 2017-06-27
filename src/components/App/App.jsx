@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { removeSpecialChars, applyPattern } from '../../utils/formatters';
+import { removeNonNumerics, applyPattern } from '../../utils/formatters';
 
 class App extends Component {
     constructor (props) {
@@ -12,8 +12,9 @@ class App extends Component {
     } 
 
     handleChange (e) {
-        let value = removeSpecialChars(e.target.value);
-        value = applyPattern(value, '111.111.111.11');
+        // ;let value = removeNonNumerics(e.target.value);
+        let value = applyPattern(e.target.value, '123.123.123-12');
+        
         this.handleValue(value);
     }
 
